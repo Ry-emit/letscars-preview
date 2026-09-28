@@ -3,7 +3,7 @@ Theme Name: Let's Cars Barcelona
 Theme URI: https://letscarsbarcelona.com
 Author: Àlex Català
 Description: Tema a medida para LET'S CARS BARCELONA — concesionario de ocasión en Rubí. Estilo minimalista inspirado en Porsche: negro/blanco, foto a sangre, tipografía grande en peso regular. Incluye tipo de contenido "Coche" con escaparate, filtros y ficha de vehículo.
-Version: 5.0.0
+Version: 5.2.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -461,9 +461,8 @@ h1, h2{ letter-spacing:-.02em; }
 
 
 /* ============================================================
-   ★★ ESTILO OSCURO (por defecto) — fondo negro, texto blanco ★★
-   Intercambia blanco↔negro del diseño original. Solo blanco y negro.
-   El estilo claro está al final de este archivo (body.scheme-light).
+   ★★ ESTILO DE LA WEB — fondo negro, texto blanco ★★
+   Intercambia blanco↔negro del diseño original. Blanco, negro y el rojo de acento.
    ============================================================ */
 :root{
   --white:#0A0A0A;          /* "blanco" → negro (fondos base) */
@@ -753,50 +752,6 @@ h1, h2{ letter-spacing:-.02em; }
 .filters.is-auto .filters__submit{ display:none; }
 [data-results]{ transition:opacity .2s var(--ease); }
 [data-results].is-loading{ opacity:.45; pointer-events:none; }
-
-
-/* ============================================================
-   FONDO CLARO — blanco de fondo, texto negro
-   Es el estilo definitivo de la web (siempre activo: el <body> lleva scheme-light)
-   ============================================================ */
-body.scheme-light{
-  --white:#FFFFFF; --black:#0A0A0A;
-  --grey-50:#FAFAFB; --grey-100:#F1F1F3; --grey-200:#E4E4E8; --grey-500:#6E6E73; --grey-700:#3A3A3D;
-  --accent-text:#0A0A0A;   /* textos y líneas de acento: negro */
-  --surface:#FFFFFF; --surface-2:#F4F4F6;
-  --avatar-1:#0A0A0A; --avatar-2:#3A3A3D;
-  --shadow-xs:0 1px 2px rgba(10,10,10,.05); --shadow-sm:0 2px 8px rgba(10,10,10,.06);
-  --shadow:0 10px 40px rgba(10,10,10,.08); --shadow-lg:0 30px 80px rgba(10,10,10,.16);
-}
-/* Cabecera */
-body.scheme-light .site-header{ background:rgba(255,255,255,.92); border-bottom:1px solid rgba(10,10,10,.10); }
-body.scheme-light .wordmark__main{ color:#0A0A0A; }
-body.scheme-light .wordmark__sub{ color:#5a5a5f; }
-body.scheme-light .main-nav a{ color:#3A3A3D; }
-body.scheme-light .main-nav a:hover, body.scheme-light .main-nav .current-menu-item > a{ color:#0A0A0A; }
-body.scheme-light .header-tel{ color:#0A0A0A; }
-body.scheme-light .nav-toggle span{ background:#0A0A0A; }
-@media (max-width:768px){ body.scheme-light .main-nav{ background:#FFFFFF; } }
-/* El logo del sitio es blanco: en el estilo claro se invierte el brillo conservando los colores de las marcas */
-body.scheme-light .site-logo img{ filter:invert(1) hue-rotate(180deg); }
-/* Tarjetas, filtros, formularios */
-body.scheme-light .car-card, body.scheme-light .filters, body.scheme-light .testimonial,
-body.scheme-light .warranty-box, body.scheme-light .form-card{ border-color:rgba(10,10,10,.10); }
-body.scheme-light .car-card__media{ background:#F1F1F3; }
-body.scheme-light .field select, body.scheme-light .field input,
-body.scheme-light .form-card input, body.scheme-light .form-card select, body.scheme-light .form-card textarea{
-  border-color:rgba(10,10,10,.16); color:#0A0A0A; }
-body.scheme-light .field select{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%233A3A3D' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E"); }
-body.scheme-light .field input::placeholder, body.scheme-light .form-card input::placeholder,
-body.scheme-light .form-card textarea::placeholder{ color:#9a9a9f; }
-body.scheme-light .google-badge{ border-color:rgba(10,10,10,.14); color:#0A0A0A; }
-/* Bloque oscuro "Vende tu coche" y pie: siguen en negro */
-body.scheme-light .editorial--dark{ background:#0A0A0A; color:#F4F2EF; }
-body.scheme-light .site-footer{ background:#0A0A0A; }
-/* Barra de scroll de las miniaturas */
-body.scheme-light .gallery__thumbs{ scrollbar-color:rgba(10,10,10,.28) transparent; }
-body.scheme-light .gallery__thumbs::-webkit-scrollbar-thumb{ background:rgba(10,10,10,.22); }
-body.scheme-light .gallery__thumbs::-webkit-scrollbar-thumb:hover{ background:rgba(10,10,10,.38); }
 
 
 /* ============================================================
