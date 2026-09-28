@@ -7,7 +7,8 @@
     { id: '',       name: 'Sin color' },
     { id: 'azure',  name: 'Azul claro', sw: '#68C7EC' },
     { id: 'orange', name: 'Naranja',    sw: '#F2681C' },
-    { id: 'navy',   name: 'Azul marino',sw: '#235AA6' }
+    { id: 'navy',   name: 'Azul marino',sw: '#235AA6' },
+    { id: 'red',    name: 'Rojo',       sw: '#C8102E' }
   ];
   var K_BG = 'lc-bg', K_AC = 'lc-accent';
   function get(k, def) {
