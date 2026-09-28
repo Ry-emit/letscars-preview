@@ -2,7 +2,9 @@
   var SCHEMES = [
     { id: 'dark',  name: 'Oscuro' },
     { id: 'light', name: 'Claro' },
-    { id: 'azure', name: 'Azul' }
+    { id: 'azure',  name: 'Azul claro' },
+    { id: 'orange', name: 'Naranja' },
+    { id: 'navy',   name: 'Azul marino' }
   ];
   var KEY = 'lc-scheme';
   function current() {
@@ -11,7 +13,7 @@
     try { return localStorage.getItem(KEY) || 'dark'; } catch (e) { return 'dark'; }
   }
   function apply(id) {
-    document.body.classList.remove('scheme-dark', 'scheme-light', 'scheme-azure');
+    SCHEMES.forEach(function (s) { document.body.classList.remove('scheme-' + s.id); });
     document.body.classList.add('scheme-' + id);
     try { localStorage.setItem(KEY, id); } catch (e) {}
     [].forEach.call(document.querySelectorAll('.lcp-btn'), function (b) {
@@ -22,9 +24,9 @@
     + 'padding:7px 9px;border-radius:999px;background:rgba(22,22,22,.92);backdrop-filter:blur(10px);box-shadow:0 10px 34px rgba(0,0,0,.45);'
     + 'font:600 13px/1 -apple-system,Helvetica,Arial,sans-serif;border:1px solid rgba(255,255,255,.16)}'
     + '.lcp b{color:#9a9793;font-weight:600;padding:0 6px 0 4px;letter-spacing:.04em;text-transform:uppercase;font-size:11px}'
-    + '.lcp-btn{border:0;border-radius:999px;padding:8px 14px;background:transparent;color:#e9e7e4;cursor:pointer;font:inherit}'
+    + '.lcp-btn{border:0;border-radius:999px;padding:8px 12px;background:transparent;color:#e9e7e4;cursor:pointer;font:inherit}'
     + '.lcp-btn[aria-pressed="true"]{background:#f4f2ef;color:#111}'
-    + '@media(max-width:600px){.lcp{bottom:12px}.lcp-btn{padding:8px 11px}}'
+    + '@media(max-width:760px){.lcp{bottom:12px;flex-wrap:wrap;justify-content:center;max-width:94vw}.lcp-btn{padding:7px 10px;font-size:12px}}'
     + '.lcp-note{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);z-index:9999;background:rgba(22,22,22,.94);color:#f4f2ef;'
     + 'padding:10px 16px;border-radius:12px;font:500 13px/1.4 -apple-system,Helvetica,Arial,sans-serif;max-width:min(88vw,420px);text-align:center;'
     + 'border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 34px rgba(0,0,0,.45)}';

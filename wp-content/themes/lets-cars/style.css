@@ -3,7 +3,7 @@ Theme Name: Let's Cars Barcelona
 Theme URI: https://letscarsbarcelona.com
 Author: Àlex Català
 Description: Tema a medida para LET'S CARS BARCELONA — concesionario de ocasión en Rubí. Estilo minimalista inspirado en Porsche: negro/blanco, foto a sangre, tipografía grande en peso regular. Incluye tipo de contenido "Coche" con escaparate, filtros y ficha de vehículo.
-Version: 4.0.0
+Version: 4.1.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -752,8 +752,12 @@ h1, h2{ letter-spacing:-.02em; }
 .hero .btn--accent{ background:#0A0A0A; border-color:rgba(255,255,255,.4); color:#fff; }
 .hero .btn--accent:hover{ background:#000; border-color:#fff; color:#fff; }
 /* …salvo en el estilo con color de acento, donde el botón lleva ese color */
-body.scheme-azure .hero .btn--accent{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
-body.scheme-azure .hero .btn--accent:hover{ background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
+body.scheme-azure .hero .btn--accent,
+body.scheme-orange .hero .btn--accent,
+body.scheme-navy .hero .btn--accent{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+body.scheme-azure .hero .btn--accent:hover,
+body.scheme-orange .hero .btn--accent:hover,
+body.scheme-navy .hero .btn--accent:hover{ background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
 
 /* ---- Filtros instantáneos: sin botón "Filtrar" cuando hay JavaScript ---- */
 .filters.is-auto .filters__submit{ display:none; }
@@ -814,3 +818,15 @@ body.scheme-azure{
   --accent:#68C7EC; --accent-dark:#46B4E0; --on-accent:#0A0A0A; --accent-text:#F4F2EF;
 }
 body.scheme-azure .fab--tel{ background:var(--surface-2); color:var(--black); }
+
+/* Naranja */
+body.scheme-orange{
+  --accent:#F2681C; --accent-dark:#D2550F; --on-accent:#0A0A0A; --accent-text:#F4F2EF;
+}
+body.scheme-orange .fab--tel{ background:var(--surface-2); color:var(--black); }
+
+/* Azul marino */
+body.scheme-navy{
+  --accent:#235AA6; --accent-dark:#194178; --on-accent:#FFFFFF; --accent-text:#F4F2EF;
+}
+body.scheme-navy .fab--tel{ background:var(--surface-2); color:var(--black); }
