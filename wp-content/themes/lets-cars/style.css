@@ -3,7 +3,7 @@ Theme Name: Let's Cars Barcelona
 Theme URI: https://letscarsbarcelona.com
 Author: Àlex Català
 Description: Tema a medida para LET'S CARS BARCELONA — concesionario de ocasión en Rubí. Estilo minimalista inspirado en Porsche: negro/blanco, foto a sangre, tipografía grande en peso regular. Incluye tipo de contenido "Coche" con escaparate, filtros y ficha de vehículo.
-Version: 4.3.0
+Version: 5.0.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -748,9 +748,6 @@ h1, h2{ letter-spacing:-.02em; }
 /* ---- Botón principal ("Pide cita", WhatsApp…) en blanco y negro ---- */
 .btn--accent{ color:var(--on-accent); }
 .btn--accent:hover{ color:var(--on-accent); }
-/* En la portada (sobre foto) el botón es negro para que se lea */
-.hero .btn--accent{ background:#0A0A0A; border-color:rgba(255,255,255,.4); color:#fff; }
-.hero .btn--accent:hover{ background:#000; border-color:#fff; color:#fff; }
 
 /* ---- Filtros instantáneos: sin botón "Filtrar" cuando hay JavaScript ---- */
 .filters.is-auto .filters__submit{ display:none; }
@@ -759,13 +756,13 @@ h1, h2{ letter-spacing:-.02em; }
 
 
 /* ============================================================
-   ESTILO CLARO — fondo blanco, texto negro
-   Se activa en Apariencia → Personalizar → Let's Cars — Ajustes → Estilo de la web
+   FONDO CLARO — blanco de fondo, texto negro
+   Es el estilo definitivo de la web (siempre activo: el <body> lleva scheme-light)
    ============================================================ */
 body.scheme-light{
   --white:#FFFFFF; --black:#0A0A0A;
   --grey-50:#FAFAFB; --grey-100:#F1F1F3; --grey-200:#E4E4E8; --grey-500:#6E6E73; --grey-700:#3A3A3D;
-  --accent:#0A0A0A; --accent-dark:#333333; --on-accent:#FFFFFF; --accent-text:#0A0A0A;
+  --accent-text:#0A0A0A;   /* textos y líneas de acento: negro */
   --surface:#FFFFFF; --surface-2:#F4F4F6;
   --avatar-1:#0A0A0A; --avatar-2:#3A3A3D;
   --shadow-xs:0 1px 2px rgba(10,10,10,.05); --shadow-sm:0 2px 8px rgba(10,10,10,.06);
@@ -803,31 +800,15 @@ body.scheme-light .gallery__thumbs::-webkit-scrollbar-thumb:hover{ background:rg
 
 
 /* ============================================================
-   COLOR DE ACENTO  (se combina con cualquiera de los dos fondos)
-   Solo cambia el color de relleno de los botones, la barra de confianza
-   y los iconos. El resto de la web sigue en blanco y negro.
-   Clases: accent-azure · accent-orange · accent-navy · accent-red
-   (scheme-azure/orange/navy son los nombres antiguos y siguen valiendo)
+   COLOR DE ACENTO — ROJO  (#C8102E)
+   Tiñe el relleno de los botones, la barra de confianza y los iconos.
+   El resto de la web es blanco y negro.
    ============================================================ */
-body.accent-azure,  body.scheme-azure { --accent:#68C7EC; --accent-dark:#46B4E0; --on-accent:#0A0A0A; }
-body.accent-orange, body.scheme-orange{ --accent:#F2681C; --accent-dark:#D2550F; --on-accent:#0A0A0A; }
-body.accent-navy,   body.scheme-navy  { --accent:#235AA6; --accent-dark:#194178; --on-accent:#FFFFFF; }
-body.accent-red,    body.scheme-red   { --accent:#C8102E; --accent-dark:#960C22; --on-accent:#FFFFFF; }
+body{ --accent:#C8102E; --accent-dark:#960C22; --on-accent:#FFFFFF; }
 
 /* El botón de llamar flotante no se tiñe: se queda neutro */
-body.accent-azure .fab--tel,  body.scheme-azure .fab--tel,
-body.accent-orange .fab--tel, body.scheme-orange .fab--tel,
-body.accent-navy .fab--tel,   body.scheme-navy .fab--tel,
-body.accent-red .fab--tel,    body.scheme-red .fab--tel{ background:var(--surface-2); color:var(--black); }
+.fab--tel{ background:var(--surface-2); color:var(--black); }
 
-/* Sobre la foto de la portada el botón lleva el color, no el negro */
-body.accent-azure .hero .btn--accent,  body.scheme-azure .hero .btn--accent,
-body.accent-orange .hero .btn--accent, body.scheme-orange .hero .btn--accent,
-body.accent-navy .hero .btn--accent,   body.scheme-navy .hero .btn--accent,
-body.accent-red .hero .btn--accent,    body.scheme-red .hero .btn--accent{
-  background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
-body.accent-azure .hero .btn--accent:hover,  body.scheme-azure .hero .btn--accent:hover,
-body.accent-orange .hero .btn--accent:hover, body.scheme-orange .hero .btn--accent:hover,
-body.accent-navy .hero .btn--accent:hover,   body.scheme-navy .hero .btn--accent:hover,
-body.accent-red .hero .btn--accent:hover,    body.scheme-red .hero .btn--accent:hover{
-  background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
+/* Sobre la foto de la portada el botón también lleva el rojo */
+.hero .btn--accent{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.hero .btn--accent:hover{ background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
