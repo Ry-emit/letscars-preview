@@ -3,7 +3,7 @@ Theme Name: Let's Cars Barcelona
 Theme URI: https://letscarsbarcelona.com
 Author: Àlex Català
 Description: Tema a medida para LET'S CARS BARCELONA — concesionario de ocasión en Rubí. Estilo minimalista inspirado en Porsche: negro/blanco, foto a sangre, tipografía grande en peso regular. Incluye tipo de contenido "Coche" con escaparate, filtros y ficha de vehículo.
-Version: 4.1.0
+Version: 4.2.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -751,13 +751,6 @@ h1, h2{ letter-spacing:-.02em; }
 /* En la portada (sobre foto) el botón es negro para que se lea */
 .hero .btn--accent{ background:#0A0A0A; border-color:rgba(255,255,255,.4); color:#fff; }
 .hero .btn--accent:hover{ background:#000; border-color:#fff; color:#fff; }
-/* …salvo en el estilo con color de acento, donde el botón lleva ese color */
-body.scheme-azure .hero .btn--accent,
-body.scheme-orange .hero .btn--accent,
-body.scheme-navy .hero .btn--accent{ background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
-body.scheme-azure .hero .btn--accent:hover,
-body.scheme-orange .hero .btn--accent:hover,
-body.scheme-navy .hero .btn--accent:hover{ background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
 
 /* ---- Filtros instantáneos: sin botón "Filtrar" cuando hay JavaScript ---- */
 .filters.is-auto .filters__submit{ display:none; }
@@ -810,23 +803,27 @@ body.scheme-light .gallery__thumbs::-webkit-scrollbar-thumb:hover{ background:rg
 
 
 /* ============================================================
-   ESTILO OSCURO + COLOR DE ACENTO
-   Igual que el oscuro, pero los botones y la barra de confianza
-   llevan el color elegido en Personalizar → Color de acento.
+   COLOR DE ACENTO  (se combina con cualquiera de los dos fondos)
+   Solo cambia el color de relleno de los botones, la barra de confianza
+   y los iconos. El resto de la web sigue en blanco y negro.
+   Clases: accent-azure · accent-orange · accent-navy
+   (scheme-azure/orange/navy son los nombres antiguos y siguen valiendo)
    ============================================================ */
-body.scheme-azure{
-  --accent:#68C7EC; --accent-dark:#46B4E0; --on-accent:#0A0A0A; --accent-text:#F4F2EF;
-}
-body.scheme-azure .fab--tel{ background:var(--surface-2); color:var(--black); }
+body.accent-azure,  body.scheme-azure { --accent:#68C7EC; --accent-dark:#46B4E0; --on-accent:#0A0A0A; }
+body.accent-orange, body.scheme-orange{ --accent:#F2681C; --accent-dark:#D2550F; --on-accent:#0A0A0A; }
+body.accent-navy,   body.scheme-navy  { --accent:#235AA6; --accent-dark:#194178; --on-accent:#FFFFFF; }
 
-/* Naranja */
-body.scheme-orange{
-  --accent:#F2681C; --accent-dark:#D2550F; --on-accent:#0A0A0A; --accent-text:#F4F2EF;
-}
-body.scheme-orange .fab--tel{ background:var(--surface-2); color:var(--black); }
+/* El botón de llamar flotante no se tiñe: se queda neutro */
+body.accent-azure .fab--tel,  body.scheme-azure .fab--tel,
+body.accent-orange .fab--tel, body.scheme-orange .fab--tel,
+body.accent-navy .fab--tel,   body.scheme-navy .fab--tel{ background:var(--surface-2); color:var(--black); }
 
-/* Azul marino */
-body.scheme-navy{
-  --accent:#235AA6; --accent-dark:#194178; --on-accent:#FFFFFF; --accent-text:#F4F2EF;
-}
-body.scheme-navy .fab--tel{ background:var(--surface-2); color:var(--black); }
+/* Sobre la foto de la portada el botón lleva el color, no el negro */
+body.accent-azure .hero .btn--accent,  body.scheme-azure .hero .btn--accent,
+body.accent-orange .hero .btn--accent, body.scheme-orange .hero .btn--accent,
+body.accent-navy .hero .btn--accent,   body.scheme-navy .hero .btn--accent{
+  background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+body.accent-azure .hero .btn--accent:hover,  body.scheme-azure .hero .btn--accent:hover,
+body.accent-orange .hero .btn--accent:hover, body.scheme-orange .hero .btn--accent:hover,
+body.accent-navy .hero .btn--accent:hover,   body.scheme-navy .hero .btn--accent:hover{
+  background:var(--accent-dark); border-color:var(--accent-dark); color:var(--on-accent); }
